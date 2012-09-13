@@ -1,7 +1,9 @@
 android-menudrawer-abs-sample
 =============================
 
-This is android-menudrawer &amp; ActionBarSherlock combination sample.
+This is the android-menudrawer &amp; ActionBarSherlock combination sample.
+
+[Demo Video][3]
 
 Special Thunks
 --------------
@@ -16,3 +18,4 @@ ActionBarSherlock by JakeWharton
 
 [1]:https://github.com/SimonVT/android-menudrawer
 [2]:https://github.com/JakeWharton/ActionBarSherlock
+[3]:http://youtu.be/jRQocY9w_bA
