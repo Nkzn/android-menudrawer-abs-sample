@@ -1,7 +1,6 @@
 package jp.water_cell.android.sample.menudrawer;
 
-import net.simonvt.widget.MenuDrawer;
-import net.simonvt.widget.MenuDrawerManager;
+import net.simonvt.menudrawer.MenuDrawer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,13 +14,13 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 
     private static final String STATE_MENUDRAWER = MainActivity.class.getName() + ".menuDrawer";
 	
-	private MenuDrawerManager mMenuDrawer;
+	private MenuDrawer mMenuDrawer;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		mMenuDrawer = new MenuDrawerManager(this, MenuDrawer.MENU_DRAG_WINDOW);
+		mMenuDrawer = MenuDrawer.attach(this, MenuDrawer.MENU_DRAG_WINDOW);
 		mMenuDrawer.setContentView(R.layout.activity_main);
 		mMenuDrawer.setMenuView(R.layout.menu);
 		
@@ -34,13 +33,13 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
     @Override
     protected void onRestoreInstanceState(Bundle inState) {
         super.onRestoreInstanceState(inState);
-        mMenuDrawer.onRestoreDrawerState(inState.getParcelable(STATE_MENUDRAWER));
+        mMenuDrawer.restoreState(inState.getParcelable(STATE_MENUDRAWER));
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(STATE_MENUDRAWER, mMenuDrawer.onSaveDrawerState());
+        outState.putParcelable(STATE_MENUDRAWER, mMenuDrawer.saveState());
     }
 
 	@Override
